@@ -31,15 +31,15 @@ def prepare_ctu_13():
 
 #Preparing the data
 
-#prepare_ctu_13()
+prepare_ctu_13()
 
-file_url = "../CTU-13-Dataset/1/capture20110810.binetflow"
-dataframe = pd.read_csv(file_url)
-del dataframe['Label']
+# file_url = "../CTU-13-Dataset/1/capture20110810.binetflow"
+# dataframe = pd.read_csv(file_url)
+# del dataframe['Label']
 
-replace_label(dataframe)
+#replace_label(dataframe)
 
 
-print(dataframe.shape)
+#print(dataframe.shape)
 
-print(dataframe.head())
+#print(dataframe.head())
