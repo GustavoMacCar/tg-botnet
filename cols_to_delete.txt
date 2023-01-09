@@ -1,0 +1,6 @@
+Flow ID
+Src IP
+Src Port
+Dst IP
+Dst Port
+Timestamp
