@@ -24,6 +24,9 @@ def bernoulli(train_features, train_labels, test_features, test_labels, result, 
     # print(f"bernoulli precision: {bernoulli_precision}")
     # print(f"bernoulli recall: {bernoulli_recall}")
     # print(f"bernoulli time for training and classification: {end - start}")
+    
+    optimizer1 = ''
+    optimizer2 = ''
 
     with open('first_optimizer.csv', mode='r') as first_optimizer:
         if not is_csv_empty('first_optimizer.csv'):
@@ -44,7 +47,7 @@ def bernoulli(train_features, train_labels, test_features, test_labels, result, 
 
     
     
-    with open(f"/home/gmcma/tg/tg-botnet/results/naive_bayes/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"/Users/carolineferreira/Documents/TCC/tg-botnet/results/naive_bayes/{dataset}/{result}.csv", mode='a') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{bernoulli_f1}", f"{bernoulli_accuracy}", f"{bernoulli_precision}", f"{bernoulli_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 

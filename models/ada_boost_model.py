@@ -48,7 +48,7 @@ def ada_boost(train_features, train_labels, test_features, test_labels, result, 
 
     
     
-    with open(f"/home/gmcma/tg/tg-botnet/results/ada_boost/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"/Users/carolineferreira/Documents/TCC/tg-botnet/results/ada_boost/{dataset}/{result}.csv", mode='a') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{ada_f1}", f"{ada_accuracy}", f"{ada_precision}", f"{ada_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 

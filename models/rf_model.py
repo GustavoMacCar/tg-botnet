@@ -25,6 +25,9 @@ def random_forest(train_features, train_labels, test_features, test_labels, resu
     # print(f"rf precision: {rf_precision}")
     # print(f"rf recall: {rf_recall}")
     # print(f"rf time for training and classification: {end - start}")
+    
+    optimizer1 = ''
+    optimizer2 = ''
 
     with open('first_optimizer.csv', mode='r') as first_optimizer:
         if not is_csv_empty('first_optimizer.csv'):
@@ -45,7 +48,7 @@ def random_forest(train_features, train_labels, test_features, test_labels, resu
 
     
     
-    with open(f"/home/gmcma/tg/tg-botnet/results/rf/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"/Users/carolineferreira/Documents/TCC/tg-botnet/results/rf/{dataset}/{result}.csv", mode='a') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{rf_f1}", f"{rf_accuracy}", f"{rf_precision}", f"{rf_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 
