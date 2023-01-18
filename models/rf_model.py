@@ -2,7 +2,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, auc, accuracy_score, precision_score, recall_score
 import time
 
-def random_forest(train_features, train_labels, test_features, test_labels):
+def random_forest(train_features, train_labels, test_features, test_labels, result):
     rf = RandomForestClassifier(n_estimators = 1000)
     
     start = time.time()

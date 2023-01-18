@@ -2,7 +2,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import f1_score, auc, accuracy_score, precision_score, recall_score
 import time
 
-def svm(train_features, train_labels, test_features, test_labels):
+def svm(train_features, train_labels, test_features, test_labels, result):
     svm = SVC()
 
     start = time.time()

@@ -3,7 +3,7 @@ from sklearn.metrics import f1_score, auc, accuracy_score, precision_score, reca
 import time
 import random
 
-def decision_tree(train_features, train_labels, test_features, test_labels):
+def decision_tree(train_features, train_labels, test_features, test_labels, result):
     decision_tree = DecisionTreeClassifier(max_leaf_nodes=10)
     
     start = time.time()

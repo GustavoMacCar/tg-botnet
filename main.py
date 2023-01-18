@@ -9,6 +9,7 @@ from models.decision_tree_model import decision_tree
 from models.naive_bayes_model import bernoulli
 from models.svm_model import svm
 import random
+import sys
 
 #knn ok
 #random forest ok
@@ -53,23 +54,23 @@ if len(optimized_features) > 0:
         feature_list = list(mocked_features.columns)
         mocked_features = np.array(mocked_features)
 
-        train_features, test_features, train_labels, test_labels = train_test_split(mocked_features, labels, test_size = 0.25, random_state = random.choice([i for i in range(10)]))
+       
+        train_features, test_features, train_labels, test_labels = train_test_split(mocked_features, labels, test_size = 0.25, random_state = int(random.random()*100000))
+        knn(train_features, train_labels, test_features, test_labels, 5, sys.argv[1])
+        #print()
         
-        knn(train_features, train_labels, test_features, test_labels, 5)
-        print()
+        # random_forest(train_features, train_labels, test_features, test_labels)
+        # print()
         
-        random_forest(train_features, train_labels, test_features, test_labels)
-        print()
-        
-        ada_boost(train_features, train_labels, test_features, test_labels)
-        print()
+        # ada_boost(train_features, train_labels, test_features, test_labels)
+        # print()
 
-        decision_tree(train_features, train_labels, test_features, test_labels)
-        print()
+        # decision_tree(train_features, train_labels, test_features, test_labels)
+        # print()
 
-        bernoulli(train_features, train_labels, test_features, test_labels)
-        print()
+        # bernoulli(train_features, train_labels, test_features, test_labels)
+        # print()
         
-        svm(train_features, train_labels, test_features, test_labels)
-        print()
+        # svm(train_features, train_labels, test_features, test_labels)
+        # print()
         

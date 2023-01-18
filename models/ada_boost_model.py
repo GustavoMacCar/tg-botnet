@@ -2,7 +2,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import f1_score, auc, accuracy_score, precision_score, recall_score
 import time
 
-def ada_boost(train_features, train_labels, test_features, test_labels):
+def ada_boost(train_features, train_labels, test_features, test_labels, result):
     ada = AdaBoostClassifier(n_estimators=100)
 
     start = time.time()
