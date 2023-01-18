@@ -56,7 +56,7 @@ if len(optimized_features) > 0:
 
        
         train_features, test_features, train_labels, test_labels = train_test_split(mocked_features, labels, test_size = 0.25, random_state = int(random.random()*100000))
-        knn(train_features, train_labels, test_features, test_labels, 5, sys.argv[1])
+        knn(train_features, train_labels, test_features, test_labels, 5, sys.argv[1], sys.argv[2])
         #print()
         
         # random_forest(train_features, train_labels, test_features, test_labels)

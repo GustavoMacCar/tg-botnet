@@ -3,7 +3,7 @@ from sklearn.metrics import f1_score, auc, accuracy_score, precision_score, reca
 import time
 import csv
 
-def knn(train_features, train_labels, test_features, test_labels, n_neighbors, result):
+def knn(train_features, train_labels, test_features, test_labels, n_neighbors, result, dataset):
     knn = KNeighborsClassifier(n_neighbors)
     
     start = time.time()
@@ -44,7 +44,7 @@ def knn(train_features, train_labels, test_features, test_labels, n_neighbors, r
 
     
     
-    with open(f"/home/gmcma/tg/tg-botnet/results/knn/{result}.csv", mode='a') as result_file:
+    with open(f"/home/gmcma/tg/tg-botnet/results/knn/{dataset}/{result}.csv", mode='a') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{knn_f1}", f"{knn_accuracy}", f"{knn_precision}", f"{knn_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 
