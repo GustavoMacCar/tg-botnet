@@ -1,5 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import f1_score, auc, accuracy_score, precision_score, recall_score
+from utility import is_csv_empty
 import time
 import csv
 
@@ -29,17 +30,19 @@ def decision_tree(train_features, train_labels, test_features, test_labels, resu
     optimizer2 = ''
 
     with open('first_optimizer.csv', mode='r') as first_optimizer:
-        next(first_optimizer)
-        data = csv.reader(first_optimizer, delimiter=',') 
-        for row in data:
-            optimizer1 = (', '.join(row))
+        if not is_csv_empty('first_optimizer.csv'):
+            next(first_optimizer)
+            data = csv.reader(first_optimizer, delimiter=',') 
+            for row in data:
+                optimizer1 = (', '.join(row))
     first_optimizer.close()
 
     with open('second_optimizer.csv', mode='r') as second_optimizer:
-        next(second_optimizer)
-        data = csv.reader(second_optimizer, delimiter=',') 
-        for row in data:
-            optimizer2 = (', '.join(row))
+        if not is_csv_empty('second_optimizer.csv'):
+            next(second_optimizer)
+            data = csv.reader(second_optimizer, delimiter=',') 
+            for row in data:
+                optimizer2 = (', '.join(row))
     second_optimizer.close()
 
 
