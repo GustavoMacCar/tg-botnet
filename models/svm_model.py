@@ -24,6 +24,9 @@ def svm(train_features, train_labels, test_features, test_labels, result, datase
     # print(f"svm precision: {svm_precision}")
     # print(f"svm recall: {svm_recall}")
     # print(f"svm time for training and classification: {end - start}")
+    
+    optimizer1 = ''
+    optimizer2 = ''
 
     with open('first_optimizer.csv', mode='r') as first_optimizer:
         if not is_csv_empty('first_optimizer.csv'):
@@ -44,7 +47,9 @@ def svm(train_features, train_labels, test_features, test_labels, result, datase
 
     
     
-    with open(f"/home/gmcma/tg/tg-botnet/results/svm/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"/Users/carolineferreira/Documents/TCC/tg-botnet/results/svm/{dataset}/{result}.csv", mode='a') as result_file:
+        print(dataset)
+        print(result)
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{svm_f1}", f"{svm_accuracy}", f"{svm_precision}", f"{svm_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 
