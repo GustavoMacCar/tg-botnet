@@ -49,18 +49,14 @@ if not is_csv_empty('features.csv'):
     optimized_features = [e for e in optimized_features if e != []]
 
 if len(optimized_features) > 0:
-    for optimized_feature in optimized_features:
+    for optimized_feature in optimized_features: #always has only one element: an array with the optmized features
         features = pd.DataFrame(features)
-        mocked_features = features
-        #r = [i for i in range(77) if i not in optimized_feature]
+        selected_features = features.iloc[:,optimized_feature].copy()
         
-        #mocked_features = features.iloc[:, [i for i in range(22)]]
-        feature_list = list(mocked_features.columns)
-        mocked_features = np.array(mocked_features)
-
-       
-        train_features, test_features, train_labels, test_labels = train_test_split(mocked_features, labels, test_size = 0.25, random_state = int(random.random()*100000))
-        #knn(train_features, train_labels, test_features, test_labels, 5, sys.argv[1], sys.argv[2])
+        selected_features = np.array(selected_features)
+        
+        train_features, test_features, train_labels, test_labels = train_test_split(selected_features, labels, test_size = 0.25, random_state = int(random.random()*100000))
+        knn(train_features, train_labels, test_features, test_labels, 5, sys.argv[1], sys.argv[2])
         #print()
         
         #random_forest(train_features, train_labels, test_features, test_labels, sys.argv[1], sys.argv[2])
@@ -75,23 +71,22 @@ if len(optimized_features) > 0:
         #bernoulli(train_features, train_labels, test_features, test_labels, sys.argv[1], sys.argv[2])
         # print()
         
-        svm(train_features, train_labels, test_features, test_labels, sys.argv[1], sys.argv[2])
+        #svm(train_features, train_labels, test_features, test_labels, sys.argv[1], sys.argv[2])
         # print()
 
 else:
     features = pd.DataFrame(features)
-    mocked_features = features
+    selected_features = features
     #r = [i for i in range(77) if i not in optimized_feature]
     
-    feature_list = list(mocked_features.columns)
-    mocked_features = np.array(mocked_features)
+    selected_features = np.array(selected_features)
     for i in range(30):
-        train_features, test_features, train_labels, test_labels = train_test_split(mocked_features, labels, test_size = 0.25, random_state = int(random.random()*100000))
+        train_features, test_features, train_labels, test_labels = train_test_split(selected_features, labels, test_size = 0.25, random_state = int(random.random()*100000))
     
-        knn(train_features, train_labels, test_features, test_labels, 5, 'control', sys.argv[2])
+        #knn(train_features, train_labels, test_features, test_labels, 5, 'control', sys.argv[2])
         #print()
         
-        #random_forest(train_features, train_labels, test_features, test_labels, 'control', sys.argv[2])
+        random_forest(train_features, train_labels, test_features, test_labels, 'control', sys.argv[2])
         # print()
         
         #ada_boost(train_features, train_labels, test_features, test_labels, 'control', sys.argv[2])
