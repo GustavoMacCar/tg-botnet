@@ -14,7 +14,7 @@ import sys
 
 SAME_DATASET = True
 
-features = pd.read_csv('ctu13_sample.csv')
+features = pd.read_csv('isot_2010_sample.csv')
 labels = np.array(features['Botnet'])
 features = features.drop('Botnet', axis = 1)
 

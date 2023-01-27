@@ -48,7 +48,7 @@ def random_forest(train_features, train_labels, test_features, test_labels, resu
 
     
     
-    with open(f"results/rf/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"results/rf/{dataset}/{result}.csv", mode='a+') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{rf_f1}", f"{rf_accuracy}", f"{rf_precision}", f"{rf_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 

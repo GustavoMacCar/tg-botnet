@@ -47,7 +47,7 @@ def svm(train_features, train_labels, test_features, test_labels, result, datase
 
     
     
-    with open(f"results/svm/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"results/svm/{dataset}/{result}.csv", mode='a+') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{svm_f1}", f"{svm_accuracy}", f"{svm_precision}", f"{svm_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 

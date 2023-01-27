@@ -47,7 +47,7 @@ def bernoulli(train_features, train_labels, test_features, test_labels, result, 
 
     
     
-    with open(f"results/naive_bayes/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"results/naive_bayes/{dataset}/{result}.csv", mode='a+') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{bernoulli_f1}", f"{bernoulli_accuracy}", f"{bernoulli_precision}", f"{bernoulli_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 

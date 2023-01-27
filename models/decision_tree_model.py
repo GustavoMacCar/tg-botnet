@@ -57,7 +57,7 @@ def decision_tree(train_features, train_labels, test_features, test_labels, resu
 
     
     
-    with open(f"results/decision_tree/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"results/decision_tree/{dataset}/{result}.csv", mode='a+') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{decision_tree_f1}", f"{decision_tree_accuracy}", f"{decision_tree_precision}", f"{decision_tree_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}", f"{optimizer3}"])
 
