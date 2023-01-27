@@ -28,6 +28,7 @@ def decision_tree(train_features, train_labels, test_features, test_labels, resu
 
     optimizer1 = ''
     optimizer2 = ''
+    optimizer3 = ''
 
     with open('first_optimizer.csv', mode='r') as first_optimizer:
         if not is_csv_empty('first_optimizer.csv'):
@@ -45,13 +46,20 @@ def decision_tree(train_features, train_labels, test_features, test_labels, resu
                 optimizer2 = (', '.join(row))
     second_optimizer.close()
 
+    with open('third_optimizer.csv', mode='r') as third_optimizer:
+        if not is_csv_empty('third_optimizer.csv'):
+            next(third_optimizer)
+            data = csv.reader(third_optimizer, delimiter=',') 
+            for row in data:
+                optimizer3 = (', '.join(row))
+    second_optimizer.close()
+
 
     
     
-    with open(f"/Users/carolineferreira/Documents/TCC/tg-botnet/results/decision_tree/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"results/decision_tree/{dataset}/{result}.csv", mode='a') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
-        result_file.writerow([f"{decision_tree_f1}", f"{decision_tree_accuracy}", f"{decision_tree_precision}", f"{decision_tree_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
-
+        result_file.writerow([f"{decision_tree_f1}", f"{decision_tree_accuracy}", f"{decision_tree_precision}", f"{decision_tree_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}", f"{optimizer3}"])
 
 
     

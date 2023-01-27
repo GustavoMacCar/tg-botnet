@@ -12,7 +12,7 @@ def replace_label(dataframe):
         '172.16.2.12'
     ]
     for i in dataframe.index:
-        if (dataframe['Src IP'][i] == botnet_ip or dataframe['Dst IP'][i] == botnet_ip):
+        if (dataframe['Src IP'][i] in botnet_ip or dataframe['Dst IP'][i] in botnet_ip):
             botnet.append(1)
         else:
             botnet.append(0)

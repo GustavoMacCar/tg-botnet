@@ -48,7 +48,7 @@ def knn(train_features, train_labels, test_features, test_labels, n_neighbors, r
 
     
     
-    with open(f"/Users/carolineferreira/Documents/TCC/tg-botnet/results/knn/{dataset}/{result}.csv", mode='a') as result_file:
+    with open(f"results/knn/{dataset}/{result}.csv", mode='a') as result_file:
         result_file = csv.writer(result_file, delimiter=',')
         result_file.writerow([f"{knn_f1}", f"{knn_accuracy}", f"{knn_precision}", f"{knn_recall}", f"{end - start}", f"{optimizer1}", f"{optimizer2}"])
 
